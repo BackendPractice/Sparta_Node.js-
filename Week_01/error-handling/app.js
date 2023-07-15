@@ -13,24 +13,20 @@ try {
 // PARK
 // Error: user.toUpperCase is not a function
 
-// function withdraw(amount, account) {
-//   if (amount > account.balance) throw new Error("잔고가 부족합니다.");
-//   account.balance -= amount;
-//   console.log(`현재 잔고가 ${account.balance}남았습니다.`); // 출력되지 않음
-// }
+function withdraw(amount, account) {
+  try {
+    if (amount > account.balance) throw new Error("잔고가 부족합니다.");
+    account.balance -= amount;
+    console.log(`현재 잔고가 ${account.balance}남았습니다.`); // 출력되지 않음
+  } catch (err) {
+    console.log("Error: ", err.message);
+  }
+}
 
-// const account = { balance: 1000 };
-// withdraw(2000, account);
+const account = { balance: 1000 };
+withdraw(2000, account);
 
 // Error: 잔고가 부족합니다.
-//     at withdraw (/Users/kidongg/Desktop/sparta_node/Week_01/error-handling/app.js:17:39)
-//     at Object.<anonymous> (/Users/kidongg/Desktop/sparta_node/Week_01/error-handling/app.js:23:1)
-//     at Module._compile (node:internal/modules/cjs/loader:1267:14)
-//     at Module._extensions..js (node:internal/modules/cjs/loader:1321:10)
-//     at Module.load (node:internal/modules/cjs/loader:1125:32)
-//     at Module._load (node:internal/modules/cjs/loader:965:12)
-//     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:83:12)
-//     at node:internal/main/run_main_module:23:47
 
 function errorException(isThrow) {
   try {
